@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.team.app.dao.DownlinkQueueDao;
 import com.team.app.dao.FrameDao;
+import com.team.app.dao.ParkingFrameDao;
 import com.team.app.domain.DownlinkQueue;
 import com.team.app.domain.LoraFrame;
+import com.team.app.domain.TblParkingFrame;
 import com.team.app.logger.AtLogger;
 import com.team.app.service.MqttFramesService;
 
@@ -19,6 +21,9 @@ public class MqttFramesServiceImpl implements MqttFramesService {
 	
 	@Autowired
 	private FrameDao frmaeDao;
+	
+	@Autowired
+	private ParkingFrameDao parkingFrameDao;
 	
 	@Autowired
 	private DownlinkQueueDao  downlinkQueueDao;
@@ -74,6 +79,27 @@ public class MqttFramesServiceImpl implements MqttFramesService {
 	public void deleteDownlinkQuere() throws Exception {
 		downlinkQueueDao.deleteAll();
 		
+	}
+
+
+
+
+	public List<TblParkingFrame> getParkingFrame() throws Exception {
+		return parkingFrameDao.getParkingFrame();
+	}
+
+
+
+	
+	public List<TblParkingFrame> getParkingFrames() throws Exception {
+		return parkingFrameDao.getParkingFrames();
+	}
+
+
+
+	
+	public List<TblParkingFrame> getParkingFrameByDevEUI(String devEUI) throws Exception {
+		return parkingFrameDao.getParkingFrameByDevEUI(devEUI);
 	}
 
 

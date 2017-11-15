@@ -23,7 +23,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<title>Toshiba Frame</title>
+<title>Frame</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/custom_siemens.css" rel="stylesheet">
@@ -49,11 +49,11 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
 						<% AdminUser adminUser=(AdminUser)request.getSession().getAttribute("adminUser");
-						String fname1=("ToshibaFrameList :").concat(new Date().toString()).concat(".csv");
-						String fname2=("ToshibaFrameList :").concat(new Date().toString()).concat(".xls");
-						String fname3=("ToshibaFrameList :").concat(new Date().toString()).concat(".xml");
+						String fname1=("FrameList :").concat(new Date().toString()).concat(".csv");
+						String fname2=("FrameList :").concat(new Date().toString()).concat(".xls");
+						String fname3=("FrameList :").concat(new Date().toString()).concat(".xml");
 						
-						List<LoraFrame> frames=(List<LoraFrame>)request.getAttribute("frames");
+						List<TblUserInfo> frames=(List<TblUserInfo>)request.getAttribute("frames");
 						%>
 	
 <div class="wrapper">  
@@ -192,18 +192,11 @@
 							<display:column  property="applicationID" title="ApplicationID" sortable="true"  />
 							<display:column  property="applicationName" title="ApplicationName" sortable="true"  />
 							<display:column  property="devEUI" title="DevEUI" sortable="true"  />
-							<%-- <display:column  property="fPort" title="fPort" sortable="true"  /> --%>
 							<display:column  property="gatewayMac" title="GatewayMac" sortable="true"  />
 							<display:column  property="gatewayName" title="GatewayName" sortable="true"  />
-							<display:column  property="deviceId" title="DeviceId" sortable="true"  />
-							<%-- <display:column  property="length" title="Length" sortable="true"  /> --%>
-							<display:column  property="led1" title="Led1" sortable="true"  />
-							<display:column  property="led2" title="Led2" sortable="true"  />
-							<display:column  property="led3" title="Led3" sortable="true"  />
-							<display:column  property="led4" title="Led4" sortable="true"  />
-							<display:column  property="temperature" title="Temperature" sortable="true"  />
-							<display:column  property="pressure" title="Pressure" sortable="true"  />
-							<display:column  property="humidity" title="Humidity" sortable="true"  />
+							<display:column  property="status" title="Status" sortable="true"  />
+							<display:column  property="parkingNumber" title="ParkingNumber" sortable="true"  />
+							
 							<display:column  property="createdAt" title="CreatedDt"  sortable="true"  />
 								
 									

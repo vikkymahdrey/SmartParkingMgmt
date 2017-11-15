@@ -11,7 +11,7 @@ import com.team.app.domain.LoraFrame;
 
 public interface FrameDao extends JpaRepository<LoraFrame, Serializable> {
 
-	@Query("Select f from LoraFrame f order by id desc")
+	@Query("Select f from LoraFrame f order by f.id desc")
 	List<LoraFrame> getFrames();
 
 	@Query(value="Select * from lora_frames f where f.nodeName=?1 and f.DeviceId=?2  ORDER BY id DESC LIMIT 10",nativeQuery = true)

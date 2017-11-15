@@ -5,7 +5,7 @@
 	version="2.0">
 	<persistence-unit name="AppPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<non-jta-data-source>java:comp/env/jdbc/AppDB</non-jta-data-source>
+		<non-jta-data-source>java:comp/env/jdbc/AtDB</non-jta-data-source>
 		<class>com.team.app.domain.AdminUser</class>
 		<class>com.team.app.domain.Role</class>
 		<class>com.team.app.domain.TblDeviceInfo</class>
@@ -27,6 +27,8 @@
 		<class>com.team.app.domain.OrganizationUser</class>
 		<class>com.team.app.domain.User</class>
 		<class>com.team.app.domain.LoraFrame</class>
+		<class>com.team.app.domain.FrameLogTest</class>
+		<class>com.team.app.domain.TblParkingFrame</class>
 		
 
 		<properties>

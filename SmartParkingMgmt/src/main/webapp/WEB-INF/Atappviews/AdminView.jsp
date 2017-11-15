@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Toshiba Admin Home</title>
+    <title>Smart parking mgmt</title>
     
 	<script type="text/javascript" src="js/jquery-latest.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -78,7 +78,7 @@
 						    
 						    </filter>
 						  </defs>
-						  <text stroke-width="3.5"  stroke="white" font-size="26" font-family="Verdana" x="0" y="40">TOSHIBA</text>
+						  <text stroke-width="3.5"  stroke="white" font-size="26" font-family="Verdana" x="0" y="40">Parking</text>
 						  
 						  Sorry, your browser does not support inline SVG.
 				</svg>
@@ -196,7 +196,7 @@
 							  <!-- Apply any bg-* class to to the icon to color it -->
 							  	<span class="info-box-icon bg-blue"><i class="fa fa-user"></i></span>
 							  	<div class="info-box-content">
-								    <span class="info-box-text">Toshiba Users</span>
+								    <span class="info-box-text">Users</span>
 								    <%if(userInfos!=null && !userInfos.isEmpty()){ %>
 								    <span class="info-box-number"><b><%=userInfos.get(0)%></b></span>
 								    <%}%>

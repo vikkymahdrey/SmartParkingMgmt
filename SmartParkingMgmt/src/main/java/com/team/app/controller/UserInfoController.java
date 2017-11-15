@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.team.app.domain.LoraFrame;
+import com.team.app.domain.TblParkingFrame;
 import com.team.app.domain.TblUserInfo;
 import com.team.app.dto.UserDeviceDto;
 import com.team.app.logger.AtLogger;
@@ -50,9 +50,9 @@ public class UserInfoController {
     public String framesInfoHandler(Map<String,Object> map) {
 		
 			logger.debug("/inside framesInfo");
-			List<LoraFrame> frames=null;
+			List<TblParkingFrame> frames=null;
 			try{
-				frames=mqttFramesService.getFrames();
+				frames=mqttFramesService.getParkingFrame();
 				
 				if(frames!=null && !frames.isEmpty()){
 					logger.debug("size is ",frames.size());

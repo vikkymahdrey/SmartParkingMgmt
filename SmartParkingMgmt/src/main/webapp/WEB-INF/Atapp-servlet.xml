@@ -24,7 +24,7 @@
 	
 	
 
-	 <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/AppDB" /> 
+	 <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/AtDB" /> 
 	
 
 	<bean id="hibernateJpaVendorAdapter"

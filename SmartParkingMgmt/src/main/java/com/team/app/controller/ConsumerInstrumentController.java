@@ -28,6 +28,7 @@ import com.team.app.config.MqttIntrf;
 import com.team.app.constant.AppConstants;
 import com.team.app.domain.JwtToken;
 import com.team.app.domain.LoraFrame;
+import com.team.app.domain.TblParkingFrame;
 import com.team.app.domain.User;
 import com.team.app.dto.ResponseDto;
 import com.team.app.dto.Status;
@@ -750,6 +751,59 @@ public class ConsumerInstrumentController {
 			
 		}catch(Exception e){
 			logger.error("IN contoller catch block /deviceInfo",e);
+			responseEntity = new ResponseEntity<String>(e.toString(), HttpStatus.BAD_REQUEST);
+		}
+		return responseEntity;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/parkingInfo", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> parkingInfoHandler(){
+		logger.info("Inside in /parkingInfo ");
+		ResponseEntity<String> responseEntity = null;
+		Status status=null;
+				status=new Status();
+		try{			
+			
+			   					
+				List<TblParkingFrame> frames=mqttFramesService.getParkingFrames();
+				
+				if(frames!=null && !frames.isEmpty()){
+				
+					JSONArray arr=null;
+						arr=new JSONArray();
+					JSONObject result=null;
+						result=new JSONObject();					
+					for(TblParkingFrame f : frames){
+						List<TblParkingFrame> frmList=mqttFramesService.getParkingFrameByDevEUI(f.getDevEUI());
+						if(frmList!=null && !frmList.isEmpty()){
+							TblParkingFrame frm=frmList.get(0);
+							JSONObject json=null;
+								json=new JSONObject();								
+								json.put("id", frm.getId());
+								json.put("status", frm.getStatus());
+								json.put("parkingNumber", frm.getParkingNumber());
+								json.put("nodeName", frm.getNodeName());
+															
+								arr.add(json);
+						}	
+					}	
+							result.put("devices", arr);
+						
+					String resp = JsonUtil.objToJson(result);
+					responseEntity = new ResponseEntity<String>(resp,HttpStatus.OK);
+				}else{
+					status.setStatusDesc("No frames found");
+	    			status.setStatusCode(HttpStatus.NO_CONTENT.toString());
+					String resp = JsonUtil.objToJson(status);
+	    			responseEntity = new ResponseEntity<String>(resp,HttpStatus.NO_CONTENT);
+				}
+    		    					
+    		
+    		 		  				   				
+			
+		}catch(Exception e){
+			logger.error("IN contoller catch block /parkingInfo",e);
 			responseEntity = new ResponseEntity<String>(e.toString(), HttpStatus.BAD_REQUEST);
 		}
 		return responseEntity;

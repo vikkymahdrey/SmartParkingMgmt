@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.team.app</groupId>
-	<artifactId>toshiba</artifactId>
+	<artifactId>smtprk</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Toshiba Maven Webapp</name>
+	<name>SmtPrk Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<build>
 		<plugins>
@@ -22,7 +22,7 @@
 				<version>2.4</version>
 			</plugin>
 		</plugins>
-		<finalName>toshiba</finalName>
+		<finalName>smtprk</finalName>
 	</build>
 
 	<properties>
